@@ -33,7 +33,7 @@ const SubmitPayment = ({
     if (addCustomerClicked) {
       axios
         .post(
-          "http://localhost:4040/customers/",
+          "https://agenda-back.onrender.com/customers/",
           {
             name: bookingInfo.name,
             phone: bookingInfo.phone,
@@ -50,7 +50,7 @@ const SubmitPayment = ({
           const { customer } = response.data;
           data.customer = customer._id;
           axios
-            .post("http://localhost:4040/payments", data, {
+            .post("https://agenda-back.onrender.com/payments", data, {
               headers: {
                 "Content-Type": "application/json",
                 Authorization: token,
@@ -67,7 +67,7 @@ const SubmitPayment = ({
               console.log("customer id: ", bookingInfo.customer);
               axios
                 .patch(
-                  `http://localhost:4040/customers/${bookingInfo.customer}`,
+                  `https://agenda-back.onrender.com/customers/${bookingInfo.customer}`,
                   JSON.stringify({ payments: updatedClientPayments }),
                   {
                     headers: {
@@ -80,7 +80,7 @@ const SubmitPayment = ({
                   console.log(response.data);
                   axios
                     .post(
-                      "http://localhost:4040/appointments",
+                      "https://agenda-back.onrender.com/appointments",
                       {
                         customer: bookingInfo.customer,
                         professional: bookingInfo.professional,
@@ -123,7 +123,7 @@ const SubmitPayment = ({
         });
     } else {
       axios
-        .post("http://localhost:4040/payments", data, {
+        .post("https://agenda-back.onrender.com/payments", data, {
           headers: {
             "Content-Type": "application/json",
             Authorization: token,
@@ -140,7 +140,7 @@ const SubmitPayment = ({
           console.log("customer id: ", bookingInfo.customer);
           axios
             .patch(
-              `http://localhost:4040/customers/${bookingInfo.customer}`,
+              `https://agenda-back.onrender.com/customers/${bookingInfo.customer}`,
               JSON.stringify({ payments: updatedClientPayments }),
               {
                 headers: {
@@ -153,7 +153,7 @@ const SubmitPayment = ({
               console.log(response.data);
               axios
                 .post(
-                  "http://localhost:4040/appointments",
+                  "https://agenda-back.onrender.com/appointments",
                   {
                     customer: bookingInfo.customer,
                     professional: bookingInfo.professional,

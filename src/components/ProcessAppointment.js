@@ -29,7 +29,7 @@ const ProcessAppointment = ({
 
   useEffect(() => {
     axios
-      .get(`http://localhost:4040/customers/shop?shopId=${shopId}`, {
+      .get(`https://agenda-back.onrender.com/customers/shop?shopId=${shopId}`, {
         headers: {
           Authorization: token,
         },

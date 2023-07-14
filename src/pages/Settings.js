@@ -30,7 +30,7 @@ const Settings = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:4040/managers/id", {
+      .get("https://agenda-back.onrender.com/managers/id", {
         headers: {
           Authorization: token,
         },
@@ -57,12 +57,16 @@ const Settings = () => {
     console.log(JSON.stringify(data));
 
     axios
-      .patch("http://localhost:4040/managers", JSON.stringify(data), {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: token,
-        },
-      })
+      .patch(
+        "https://agenda-back.onrender.com/managers",
+        JSON.stringify(data),
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: token,
+          },
+        }
+      )
       .then((response) => {
         console.log(response.data);
         setShopName(response.data.shopName);
@@ -72,11 +76,14 @@ const Settings = () => {
 
   const deleteProfileImg = () => {
     axios
-      .delete(`http://localhost:4040/managers/profile/${shopData.profileImg}`, {
-        headers: {
-          Authorization: token,
-        },
-      })
+      .delete(
+        `https://agenda-back.onrender.com/managers/profile/${shopData.profileImg}`,
+        {
+          headers: {
+            Authorization: token,
+          },
+        }
+      )
       .then((response) => {
         console.log(response.data);
         // Update shopData with the empty profile image
@@ -93,18 +100,22 @@ const Settings = () => {
     };
     console.log(updatedImg);
     axios
-      .post("http://localhost:4040/managers/profileImg", updatedImg, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-          Authorization: token,
-        },
-      })
+      .post(
+        "https://agenda-back.onrender.com/managers/profileImg",
+        updatedImg,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+            Authorization: token,
+          },
+        }
+      )
       .then((response) => {
         console.log(response.data);
         // Update shopData with the new profile image
         axios
           .patch(
-            "http://localhost:4040/managers/",
+            "https://agenda-back.onrender.com/managers/",
             JSON.stringify({ profileImg: response.data.profileImg }),
             {
               headers: {
@@ -395,7 +406,7 @@ const Settings = () => {
           {shopData.profileImg ? (
             <div className="relative">
               <img
-                src={`http://localhost:4040/uploads/profile/${shopData.profileImg}`}
+                src={`https://agenda-back.onrender.com/uploads/profile/${shopData.profileImg}`}
                 alt={shopData.profileImg}
                 className="w-full rounded-md max-h-40 object-cover mt-2"
               />

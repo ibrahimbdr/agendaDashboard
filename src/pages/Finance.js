@@ -33,7 +33,7 @@ const Finance = () => {
   const token = localStorage.getItem("ag_app_shop_token");
 
   useEffect(() => {
-    fetch(`http://localhost:4040/payments?shopId=${shopId}`, {
+    fetch(`https://agenda-back.onrender.com/payments?shopId=${shopId}`, {
       method: "GET",
       headers: {
         Authorization: token,
@@ -186,7 +186,7 @@ const Finance = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:4040/appointments?shopId=${shopId}`, {
+      .get(`https://agenda-back.onrender.com/appointments?shopId=${shopId}`, {
         headers: {
           Authorization: token,
         },
@@ -220,7 +220,7 @@ const Finance = () => {
   const [customers, setCustomers] = useState([]);
   useEffect(() => {
     axios
-      .get(`http://localhost:4040/customers/shop?shopId=${shopId}`, {
+      .get(`https://agenda-back.onrender.com/customers/shop?shopId=${shopId}`, {
         headers: {
           Authorization: token,
         },
@@ -237,7 +237,7 @@ const Finance = () => {
   const [products, setProducts] = useState([]);
   useEffect(() => {
     axios
-      .get(`http://localhost:4040/products/shop?shopId=${shopId}`, {
+      .get(`https://agenda-back.onrender.com/products/shop?shopId=${shopId}`, {
         headers: {
           Authorization: token,
         },

@@ -46,7 +46,7 @@ const SchedulerC = ({
     setLoading(true);
     try {
       const response = await fetch(
-        `http://localhost:4040/appointments?shopId=${shopId}`,
+        `https://agenda-back.onrender.com/appointments?shopId=${shopId}`,
         {
           method: "GET",
           headers: {
@@ -226,8 +226,9 @@ const SchedulerC = ({
       <div className="flex items-center">
         <div className="w-16">
           <button
-            className={`px-2 py-1 text-sm rounded-md ${viewMode === "daily" ? "bg-gray-800 text-white" : "text-gray-700"
-              }`}
+            className={`px-2 py-1 text-sm rounded-md ${
+              viewMode === "daily" ? "bg-gray-800 text-white" : "text-gray-700"
+            }`}
             onClick={() => setViewMode("daily")}
           >
             Daily
@@ -235,8 +236,9 @@ const SchedulerC = ({
         </div>
         <div className="w-16">
           <button
-            className={`px-2 py-1 text-sm rounded-md ${viewMode === "weekly" ? "bg-gray-800 text-white" : "text-gray-700"
-              }`}
+            className={`px-2 py-1 text-sm rounded-md ${
+              viewMode === "weekly" ? "bg-gray-800 text-white" : "text-gray-700"
+            }`}
             onClick={() => setViewMode("weekly")}
           >
             Weekly
@@ -304,8 +306,9 @@ const SchedulerC = ({
     timeSlots.push(
       <div
         key="title"
-        className={`flex items-center relative ${ind === 0 ? "border-b" : "border-b-4"
-          } border-gray-400 ps-10 min-w-[989px]`}
+        className={`flex items-center relative ${
+          ind === 0 ? "border-b" : "border-b-4"
+        } border-gray-400 ps-10 min-w-[989px]`}
       >
         {ind === 0 &&
           weekdays.map((weekday, index) => (
@@ -339,10 +342,11 @@ const SchedulerC = ({
               <div className={`${slotWidth}`} key={dayIndex}>
                 <div className="flex-grow">
                   <div
-                    className={`flex flex-col ${dayIndex !== 6
+                    className={`flex flex-col ${
+                      dayIndex !== 6
                         ? "border-l border-gray-400"
                         : "border-x border-gray-400"
-                      }`}
+                    }`}
                   >
                     {Array.from({ length: 4 }).map((_, index) => {
                       const startDateTime = new Date(weekday);
@@ -369,13 +373,13 @@ const SchedulerC = ({
                         startDateTime < new Date() ||
                         (appointment !== undefined &&
                           appointment.dateTime - startDateTime.getTime() <
-                          1800000) ||
+                            1800000) ||
                         (selectedProfessional?.officeHours !== undefined &&
                           selectedProfessional.officeHours.every(
                             (officeHour) => {
                               return (
                                 startDateTime.getHours() <
-                                officeHour.startHour ||
+                                  officeHour.startHour ||
                                 startDateTime.getHours() > officeHour.endHour
                               );
                             }
@@ -459,8 +463,9 @@ const SchedulerC = ({
                         return (
                           <div
                             key={index}
-                            className={`h-6 bg-gray-800 z-10 p-1 cursor-pointer text-white font-medium text-xs flex items-center justify-start hover:text-gray-500 ${isDisabled ? "opacity-50 cursor-not-allowed" : ""
-                              }`}
+                            className={`h-6 bg-gray-800 z-10 p-1 cursor-pointer text-white font-medium text-xs flex items-center justify-start hover:text-gray-500 ${
+                              isDisabled ? "opacity-50 cursor-not-allowed" : ""
+                            }`}
                             onClick={() =>
                               handleExistingAppointment(appointment)
                             }
@@ -481,9 +486,10 @@ const SchedulerC = ({
                         return (
                           <div
                             key={index}
-                            className={`h-6 bg-gray-200 p-1 ${index !== 3 &&
+                            className={`h-6 bg-gray-200 p-1 ${
+                              index !== 3 &&
                               "border-b border-dotted border-gray-400"
-                              } cursor-crosshair hover:bg-gray-300`}
+                            } cursor-crosshair hover:bg-gray-300`}
                             onClick={() =>
                               !isDisabled &&
                               !appointment &&
@@ -537,8 +543,9 @@ const SchedulerC = ({
     timeSlots.push(
       <div
         key="title"
-        className={`flex items-center ps-10 border-b border-gray-400 min-w-[${numProfessionals * 135 + 44
-          }px]`}
+        className={`flex items-center ps-10 border-b border-gray-400 min-w-[${
+          numProfessionals * 135 + 44
+        }px]`}
       >
         {ind === 0 &&
           selectedProfessionals.map((pro, index) => (
@@ -575,10 +582,11 @@ const SchedulerC = ({
                 <div className="flex-grow">
                   <div
                     className={`flex flex-col w-full
-                    ${proIndex !== numProfessionals - 1
+                    ${
+                      proIndex !== numProfessionals - 1
                         ? "border-l border-gray-400"
                         : "border-x border-gray-400"
-                      }
+                    }
                     `}
                   >
                     {Array.from({ length: 4 }).map((_, index) => {
@@ -617,7 +625,7 @@ const SchedulerC = ({
                         startDateTime < new Date() ||
                         (appointment !== undefined &&
                           appointment.dateTime - startDateTime.getTime() <
-                          1800000) ||
+                            1800000) ||
                         (pro?.officeHours !== undefined &&
                           pro.officeHours.every((officeHour) => {
                             return (
@@ -684,14 +692,15 @@ const SchedulerC = ({
                         return (
                           <div
                             key={index}
-                            className={`h-6 ${proIndex % 2 === 0
+                            className={`h-6 ${
+                              proIndex % 2 === 0
                                 ? professionalsAppt[proIndex] % 2 === 0
                                   ? "bg-gray-800"
                                   : "bg-slate-700"
                                 : professionalsAppt[proIndex] % 2 === 0
-                                  ? "bg-cyan-700"
-                                  : "bg-sky-800"
-                              } p-1 ${slotWidth}
+                                ? "bg-cyan-700"
+                                : "bg-sky-800"
+                            } p-1 ${slotWidth}
                         ${isDisabled ? "opacity-50 cursor-not-allowed" : ""}
                         cursor-pointer  text-white font-medium text-xs flex items-center justify-center`}
                             disabled={isDisabled}
@@ -725,15 +734,17 @@ const SchedulerC = ({
                         return (
                           <div
                             key={index}
-                            className={`h-6 ${proIndex % 2 === 0
+                            className={`h-6 ${
+                              proIndex % 2 === 0
                                 ? appointmentIndex % 2 === 0
                                   ? "bg-gray-800"
                                   : "bg-slate-700"
                                 : appointmentIndex % 2 === 0
-                                  ? "bg-cyan-700"
-                                  : "bg-sky-800"
-                              } z-10 p-1 cursor-pointer text-white font-medium text-xs flex items-center justify-start hover:text-gray-500 ${isDisabled ? "opacity-50 cursor-not-allowed" : ""
-                              }`}
+                                ? "bg-cyan-700"
+                                : "bg-sky-800"
+                            } z-10 p-1 cursor-pointer text-white font-medium text-xs flex items-center justify-start hover:text-gray-500 ${
+                              isDisabled ? "opacity-50 cursor-not-allowed" : ""
+                            }`}
                             onClick={() =>
                               handleExistingAppointment(appointment)
                             }
@@ -754,9 +765,10 @@ const SchedulerC = ({
                         return (
                           <div
                             key={index}
-                            className={`h-6 ${slotWidth} p-1 ${index !== 3 &&
+                            className={`h-6 ${slotWidth} p-1 ${
+                              index !== 3 &&
                               "border-b border-dotted border-gray-400"
-                              } cursor-crosshair hover:bg-gray-300`}
+                            } cursor-crosshair hover:bg-gray-300`}
                             onClick={() =>
                               !isDisabled &&
                               !appointment &&
@@ -793,8 +805,9 @@ const SchedulerC = ({
         timeSlots.push(
           <div
             key={`separator-${hour}`}
-            className={`h-px bg-gray-400 min-w-[${numProfessionals * 135 + 44
-              }px]`}
+            className={`h-px bg-gray-400 min-w-[${
+              numProfessionals * 135 + 44
+            }px]`}
           ></div>
         );
       }
@@ -807,10 +820,11 @@ const SchedulerC = ({
     return (
       <div className="border border-gray-400 p-4 mb-3 overflow-y-auto">
         <div
-          className={`flex items-center justify-between ${viewMode === "daily"
+          className={`flex items-center justify-between ${
+            viewMode === "daily"
               ? `min-w-[${selectedProfessionals.length * 135 + 44}px]`
               : `min-w-[989px]`
-            }`}
+          }`}
         >
           {renderTabs()}
           {viewMode === "daily" && (
@@ -856,17 +870,19 @@ const SchedulerC = ({
         </div>
 
         <div
-          className={`h-px bg-gray-500 mt-3 mb-1 ${viewMode === "daily"
+          className={`h-px bg-gray-500 mt-3 mb-1 ${
+            viewMode === "daily"
               ? `min-w-[${selectedProfessionals.length * 135 + 44}px]`
               : `hidden`
-            }`}
+          }`}
         ></div>
 
         {viewMode === "daily" && (
           <>
             <div
-              className={`grid grid-cols-4 pt-2 min-w-[${selectedProfessionals.length * 135 + 44
-                }px)`}
+              className={`grid grid-cols-4 pt-2 min-w-[${
+                selectedProfessionals.length * 135 + 44
+              }px)`}
             >
               <div>
                 <p className=" text-gray-500">
@@ -878,30 +894,32 @@ const SchedulerC = ({
         )}
 
         <div
-          className={`h-px bg-gray-500 mt-3 ${viewMode === "daily"
+          className={`h-px bg-gray-500 mt-3 ${
+            viewMode === "daily"
               ? `min-w-[${selectedProfessionals.length * 135 + 44}px]`
               : `min-w-[989px]`
-            }`}
+          }`}
         ></div>
 
         {viewMode === "daily"
           ? hoursArrs.map((hoursArrPeriod, ind) => {
-            return (
-              <>
-                {renderDailyView(hoursArrPeriod, ind)}
-                {ind !== hoursArrs.length - 1 && (
-                  <div
-                    key={ind}
-                    className={`h-1 bg-gray-500 ${`min-w-[${selectedProfessionals.length * 135 + 44
+              return (
+                <>
+                  {renderDailyView(hoursArrPeriod, ind)}
+                  {ind !== hoursArrs.length - 1 && (
+                    <div
+                      key={ind}
+                      className={`h-1 bg-gray-500 ${`min-w-[${
+                        selectedProfessionals.length * 135 + 44
                       }px]`}`}
-                  ></div>
-                )}
-              </>
-            );
-          })
+                    ></div>
+                  )}
+                </>
+              );
+            })
           : hoursArrsWeek.map((hoursArrWeekPeriod, ind) => {
-            return renderWeeklyView(hoursArrWeekPeriod, ind);
-          })}
+              return renderWeeklyView(hoursArrWeekPeriod, ind);
+            })}
 
         <ProcessAppointment
           isOpen={modelState}

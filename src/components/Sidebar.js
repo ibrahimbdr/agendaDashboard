@@ -77,7 +77,7 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
   const [shopName, setShopName] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:4040/managers/", {
+    fetch("https://agenda-back.onrender.com/managers/", {
       method: "GET",
       headers: {
         Authorization: localStorage.getItem("ag_app_shop_token"),

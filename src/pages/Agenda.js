@@ -44,7 +44,7 @@ const Agenda = () => {
   useEffect(() => {
     if (shopId !== "") {
       axios
-        .get(`http://localhost:4040/appointments?shopId=${shopId}`, {
+        .get(`https://agenda-back.onrender.com/appointments?shopId=${shopId}`, {
           headers: {
             Authorization: token,
           },
@@ -60,7 +60,7 @@ const Agenda = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:4040/managers/id", {
+      .get("https://agenda-back.onrender.com/managers/id", {
         headers: {
           Authorization: token,
         },
@@ -71,7 +71,7 @@ const Agenda = () => {
           setWorkingHours(response.data?.workingHours);
         axios
           .get(
-            `http://localhost:4040/professionals/shop?shopId=${response.data._id}`,
+            `https://agenda-back.onrender.com/professionals/shop?shopId=${response.data._id}`,
             {
               headers: {
                 Authorization: token,
@@ -169,7 +169,7 @@ const Agenda = () => {
           <div className="md:hidden flex justify-center w-full items-center border border-gray-400 p-4 mb-3">
             <img
               className="h-11 w-11 rounded-full object-cover border border-gray-400 bg-white mr-2 mb-2 md:mb-0 md:mr-3 md:w-20 md:h-20"
-              src={`http://localhost:4040/uploads/profile/${myShopImg}`}
+              src={`https://agenda-back.onrender.com/uploads/profile/${myShopImg}`}
               alt="Shop logo"
             />
             <h1 className="text-lg font-bold">{`${shopName}`}</h1>
@@ -189,7 +189,7 @@ const Agenda = () => {
           <div className="hidden md:flex justify-center items-center border border-gray-400 p-4 mt-3">
             <img
               className="h-11 w-11 rounded-full object-cover border border-gray-400 bg-white mr-2 mb-2 md:mb-0 md:mr-3 md:w-20 md:h-20"
-              src={`http://localhost:4040/uploads/profile/${myShopImg}`}
+              src={`https://agenda-back.onrender.com/uploads/profile/${myShopImg}`}
               alt="Shop logo"
             />
           </div>

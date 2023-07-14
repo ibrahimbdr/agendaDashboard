@@ -190,7 +190,7 @@ const Register = () => {
 
                   // Upload the image
                   const uploadResponse = await axios.post(
-                    "http://localhost:4040/managers/profileImg",
+                    "https://agenda-back.onrender.com/managers/profileImg",
                     formData,
                     {
                       headers: {
@@ -215,7 +215,7 @@ const Register = () => {
 
                   console.log(postData);
                   const updateResponse = await axios.post(
-                    "http://localhost:4040/managers",
+                    "https://agenda-back.onrender.com/managers",
                     postData
                   );
                   console.log(updateResponse.data);

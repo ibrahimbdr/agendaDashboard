@@ -44,7 +44,7 @@ const RegisterAppointment = ({
 
   useEffect(() => {
     axios
-      .get(`http://localhost:4040/customers/shop?shopId=${shopId}`, {
+      .get(`https://agenda-back.onrender.com/customers/shop?shopId=${shopId}`, {
         headers: {
           Authorization: token,
         },
@@ -60,7 +60,7 @@ const RegisterAppointment = ({
 
   useEffect(() => {
     axios
-      .get(`http://localhost:4040/services/shop?shopId=${shopId}`, {
+      .get(`https://agenda-back.onrender.com/services/shop?shopId=${shopId}`, {
         headers: {
           Authorization: token,
         },
@@ -90,11 +90,14 @@ const RegisterAppointment = ({
 
   useEffect(() => {
     axios
-      .get(`http://localhost:4040/professionals/shop?shopId=${shopId}`, {
-        headers: {
-          Authorization: token,
-        },
-      })
+      .get(
+        `https://agenda-back.onrender.com/professionals/shop?shopId=${shopId}`,
+        {
+          headers: {
+            Authorization: token,
+          },
+        }
+      )
       .then((response) => {
         setProfessionals(response.data.data);
         setLoading(false);
@@ -148,7 +151,7 @@ const RegisterAppointment = ({
         apptData.product = bookingInfo.product;
       }
       axios
-        .post("http://localhost:4040/appointments", apptData, {
+        .post("https://agenda-back.onrender.com/appointments", apptData, {
           headers: {
             "Content-Type": "application/json",
             Authorization: token,
@@ -174,7 +177,7 @@ const RegisterAppointment = ({
     const registerCustomerWithAppointment = () => {
       axios
         .post(
-          "http://localhost:4040/customers/",
+          "https://agenda-back.onrender.com/customers/",
           {
             name: values.name,
             phone: values.phone,
@@ -236,7 +239,7 @@ const RegisterAppointment = ({
         apptData.product = bookingInfo.product;
       }
       axios
-        .post("http://localhost:4040/appointments", apptData, {
+        .post("https://agenda-back.onrender.com/appointments", apptData, {
           headers: {
             "Content-Type": "application/json",
             Authorization: token,
@@ -270,7 +273,7 @@ const RegisterAppointment = ({
     const registerCustomerWithAppointment = () => {
       axios
         .post(
-          "http://localhost:4040/customers/",
+          "https://agenda-back.onrender.com/customers/",
           {
             name: values.name,
             phone: values.phone,

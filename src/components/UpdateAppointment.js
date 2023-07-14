@@ -51,7 +51,7 @@ const UpdateAppointment = ({
     const fetchClients = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:4040/customers/shop?shopId=${shopId}`,
+          `https://agenda-back.onrender.com/customers/shop?shopId=${shopId}`,
           {
             headers: {
               Authorization: token,
@@ -68,7 +68,7 @@ const UpdateAppointment = ({
     const fetchServices = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:4040/services/shop?shopId=${shopId}`,
+          `https://agenda-back.onrender.com/services/shop?shopId=${shopId}`,
           {
             headers: {
               Authorization: token,
@@ -84,7 +84,7 @@ const UpdateAppointment = ({
     const fetchProducts = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:4040/products/shop?shopId=${shopId}`,
+          `https://agenda-back.onrender.com/products/shop?shopId=${shopId}`,
           {
             headers: {
               Authorization: token,
@@ -101,7 +101,7 @@ const UpdateAppointment = ({
     const fetchAppointment = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:4040/appointments/${appointmentId}`,
+          `https://agenda-back.onrender.com/appointments/${appointmentId}`,
           {
             headers: {
               Authorization: token,
@@ -148,11 +148,14 @@ const UpdateAppointment = ({
 
   useEffect(() => {
     axios
-      .get(`http://localhost:4040/professionals/shop?shopId=${shopId}`, {
-        headers: {
-          Authorization: token,
-        },
-      })
+      .get(
+        `https://agenda-back.onrender.com/professionals/shop?shopId=${shopId}`,
+        {
+          headers: {
+            Authorization: token,
+          },
+        }
+      )
       .then((response) => {
         setProfessionals(response.data.data);
         setLoading(false);
@@ -225,7 +228,7 @@ const UpdateAppointment = ({
 
       axios
         .patch(
-          `http://localhost:4040/appointments/${appointmentId}`,
+          `https://agenda-back.onrender.com/appointments/${appointmentId}`,
           patchData,
           {
             headers: {
@@ -254,7 +257,7 @@ const UpdateAppointment = ({
     const registerCustomerWithAppointment = () => {
       axios
         .post(
-          "http://localhost:4040/customers/",
+          "https://agenda-back.onrender.com/customers/",
           {
             name: values.name,
             phone: values.phone,
@@ -335,7 +338,7 @@ const UpdateAppointment = ({
 
       axios
         .patch(
-          `http://localhost:4040/appointments/${appointmentId}`,
+          `https://agenda-back.onrender.com/appointments/${appointmentId}`,
           patchData,
           {
             headers: {
@@ -374,7 +377,7 @@ const UpdateAppointment = ({
     const registerCustomerWithAppointment = () => {
       axios
         .post(
-          "http://localhost:4040/customers/",
+          "https://agenda-back.onrender.com/customers/",
           {
             name: values.name,
             phone: values.phone,

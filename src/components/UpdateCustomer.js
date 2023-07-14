@@ -10,7 +10,7 @@ const UpdateCustomer = ({ setModelState, customerId }) => {
   const token = localStorage.getItem("ag_app_shop_token");
   useEffect(() => {
     axios
-      .get(`http://localhost:4040/customers/${customerId}`, {
+      .get(`https://agenda-back.onrender.com/customers/${customerId}`, {
         headers: {
           Authorization: token,
         },
@@ -46,7 +46,7 @@ const UpdateCustomer = ({ setModelState, customerId }) => {
     const fetchRequest = async () => {
       try {
         const response = await axios.patch(
-          `http://localhost:4040/customers/${customerId}`,
+          `https://agenda-back.onrender.com/customers/${customerId}`,
           data,
           {
             headers: {

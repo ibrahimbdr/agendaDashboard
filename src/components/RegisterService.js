@@ -26,7 +26,7 @@ const RegisterService = ({ setModelState }) => {
 
       // Upload the image
       const uploadResponse = await axios.post(
-        "http://localhost:4040/services/imageUpload",
+        "https://agenda-back.onrender.com/services/imageUpload",
         formData,
         {
           headers: {
@@ -50,7 +50,7 @@ const RegisterService = ({ setModelState }) => {
       };
 
       const updateResponse = await axios.post(
-        "http://localhost:4040/services",
+        "https://agenda-back.onrender.com/services",
         postData,
         {
           headers: {

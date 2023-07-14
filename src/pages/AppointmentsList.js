@@ -42,7 +42,7 @@ const AppointmentsList = () => {
 
   const fetchAppointmentData = () =>
     axios
-      .get(`http://localhost:4040/appointments?shopId=${shopId}`, {
+      .get(`https://agenda-back.onrender.com/appointments?shopId=${shopId}`, {
         headers: {
           Authorization: token,
         },
@@ -103,7 +103,7 @@ const AppointmentsList = () => {
 
   function handlePayment(id, value) {
     console.log("id: " + id + " value: " + value);
-    fetch(`http://localhost:4040/appointments/${id}`, {
+    fetch(`https://agenda-back.onrender.com/appointments/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -152,7 +152,7 @@ const AppointmentsList = () => {
   const handleRemoveSelected = () => {
     selectedIds.forEach((id) => {
       axios
-        .delete(`http://localhost:4040/appointments/${id}`, {
+        .delete(`https://agenda-back.onrender.com/appointments/${id}`, {
           headers: {
             Authorization: token,
           },

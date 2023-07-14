@@ -27,7 +27,7 @@ const RegisterCustomer = ({ setModelState }) => {
     const fetchRequest = async () => {
       try {
         const response = await axios.post(
-          "http://localhost:4040/customers/",
+          "https://agenda-back.onrender.com/customers/",
           data,
           {
             headers: {

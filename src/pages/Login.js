@@ -38,7 +38,7 @@ const Login = () => {
             validationSchema={LoginSchema}
             onSubmit={(values, { setSubmitting }) => {
               // console.log(JSON.stringify(values));
-              fetch("http://localhost:4040/managers/login", {
+              fetch("https://agenda-back.onrender.com/managers/login", {
                 method: "POST",
                 headers: {
                   "Content-Type": "application/json",

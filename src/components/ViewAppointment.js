@@ -12,7 +12,7 @@ const ViewAppointment = ({ setModelState, appointmentId }) => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:4040/appointments/${appointmentId}`, {
+      .get(`https://agenda-back.onrender.com/appointments/${appointmentId}`, {
         headers: {
           Authorization: token,
         },

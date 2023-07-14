@@ -12,7 +12,7 @@ const UpdateService = ({ setModelState, serviceId }) => {
   const [serviceData, setServiceData] = useState(null);
   useEffect(() => {
     axios
-      .get(`http://localhost:4040/services/${serviceId}`, {
+      .get(`https://agenda-back.onrender.com/services/${serviceId}`, {
         headers: {
           Authorization: token,
         },
@@ -47,7 +47,7 @@ const UpdateService = ({ setModelState, serviceId }) => {
 
         // Upload the image
         const uploadResponse = await axios.post(
-          "http://localhost:4040/services/imageUpload",
+          "https://agenda-back.onrender.com/services/imageUpload",
           formData,
           {
             headers: {
@@ -72,7 +72,7 @@ const UpdateService = ({ setModelState, serviceId }) => {
       };
 
       const updateResponse = await axios.patch(
-        `http://localhost:4040/services/${serviceId}`,
+        `https://agenda-back.onrender.com/services/${serviceId}`,
         patchData,
         {
           headers: {
@@ -93,7 +93,7 @@ const UpdateService = ({ setModelState, serviceId }) => {
     console.log("deleting ", serviceData.serviceImg);
     axios
       .delete(
-        `http://localhost:4040/services/image/${serviceData.serviceImg}`,
+        `https://agenda-back.onrender.com/services/image/${serviceData.serviceImg}`,
         {
           headers: {
             Authorization: token,
@@ -214,7 +214,7 @@ const UpdateService = ({ setModelState, serviceId }) => {
                       serviceData.serviceImg
                     )}
                     <img
-                      src={`http://localhost:4040/uploads/services/${serviceData.serviceImg}`}
+                      src={`https://agenda-back.onrender.com/uploads/services/${serviceData.serviceImg}`}
                       alt={serviceData.serviceImg}
                       className="rounded-md h-[100%]"
                     />

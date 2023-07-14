@@ -22,11 +22,14 @@ const BlockSchedule = ({ setModelState }) => {
   const [professionals, setProfessionals] = useState([]);
   useEffect(() => {
     axios
-      .get(`http://localhost:4040/professionals/shop?shopId=${shopId}`, {
-        headers: {
-          Authorization: token,
-        },
-      })
+      .get(
+        `https://agenda-back.onrender.com/professionals/shop?shopId=${shopId}`,
+        {
+          headers: {
+            Authorization: token,
+          },
+        }
+      )
       .then((response) => {
         setProfessionals(response.data.data);
         console.log(response.data.data);
@@ -186,7 +189,7 @@ const BlockSchedule = ({ setModelState }) => {
   ) => {
     axios
       .post(
-        "http://localhost:4040/appointments",
+        "https://agenda-back.onrender.com/appointments",
         {
           professional: professionalId,
           dateTime: new Date(dateTime),

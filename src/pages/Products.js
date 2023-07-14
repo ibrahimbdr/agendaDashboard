@@ -22,7 +22,7 @@ const Products = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:4040/products/shop?shopId=${shopId}`, {
+      .get(`https://agenda-back.onrender.com/products/shop?shopId=${shopId}`, {
         headers: {
           Authorization: token,
         },
@@ -88,7 +88,7 @@ const Products = () => {
 
   async function deleteProduct(id) {
     console.log(id);
-    await fetch(`http://localhost:4040/products/${id}`, {
+    await fetch(`https://agenda-back.onrender.com/products/${id}`, {
       method: "DELETE",
       headers: {
         Authorization: token,
@@ -127,7 +127,7 @@ const Products = () => {
   const handleRemoveSelected = () => {
     selectedIds.forEach((id) => {
       axios
-        .delete(`http://localhost:4040/products/${id}`, {
+        .delete(`https://agenda-back.onrender.com/products/${id}`, {
           headers: {
             Authorization: token,
           },

@@ -88,7 +88,7 @@ const Checkout = () => {
         JSON.parse(localStorage.getItem("ag_app_booking_info")).checkoutType ===
         "updating"
           ? axios.get(
-              `http://localhost:4040/payments?appt=${
+              `https://agenda-back.onrender.com/payments?appt=${
                 JSON.parse(localStorage.getItem("ag_app_booking_info"))
                   .appointmentId
               }`,
@@ -101,7 +101,7 @@ const Checkout = () => {
           : Promise.resolve(null);
 
       const fetchCustomers = axios.get(
-        `http://localhost:4040/customers/shop?shopId=${shopId}`,
+        `https://agenda-back.onrender.com/customers/shop?shopId=${shopId}`,
         {
           headers: {
             Authorization: token,
@@ -110,7 +110,7 @@ const Checkout = () => {
       );
 
       const fetchServices = axios.get(
-        `http://localhost:4040/services/shop?shopId=${shopId}`,
+        `https://agenda-back.onrender.com/services/shop?shopId=${shopId}`,
         {
           headers: {
             Authorization: token,
@@ -119,7 +119,7 @@ const Checkout = () => {
       );
 
       const fetchProducts = axios.get(
-        `http://localhost:4040/products/shop?shopId=${shopId}`,
+        `https://agenda-back.onrender.com/products/shop?shopId=${shopId}`,
         {
           headers: {
             Authorization: token,

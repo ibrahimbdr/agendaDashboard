@@ -31,7 +31,7 @@ const PendingAppointments = () => {
 
   const fetchAppointmentData = () =>
     axios
-      .get(`http://localhost:4040/appointments?shopId=${shopId}`, {
+      .get(`https://agenda-back.onrender.com/appointments?shopId=${shopId}`, {
         headers: {
           Authorization: token,
         },

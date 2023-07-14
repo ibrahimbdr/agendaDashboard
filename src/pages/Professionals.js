@@ -23,18 +23,21 @@ const Professionals = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:4040/professionals/shop?shopId=${shopId}`, {
-        headers: {
-          Authorization: token,
-        },
-      })
+      .get(
+        `https://agenda-back.onrender.com/professionals/shop?shopId=${shopId}`,
+        {
+          headers: {
+            Authorization: token,
+          },
+        }
+      )
       .then((response) => setProfessionals([...response.data.data].reverse()))
       .catch((error) => console.error(error.message));
   }, [registerModelState, updateModelState, isDeleting]);
 
   useEffect(() => {
     axios
-      .get("http://localhost:4040/managers/id", {
+      .get("https://agenda-back.onrender.com/managers/id", {
         headers: {
           Authorization: token,
         },
@@ -112,7 +115,7 @@ const Professionals = () => {
   const handleRemoveSelected = () => {
     selectedIds.forEach((id) => {
       axios
-        .delete(`http://localhost:4040/professionals/${id}`, {
+        .delete(`https://agenda-back.onrender.com/professionals/${id}`, {
           headers: {
             Authorization: token,
           },

@@ -21,7 +21,7 @@ const Clients = () => {
   const token = localStorage.getItem("ag_app_shop_token");
   useEffect(() => {
     axios
-      .get(`http://localhost:4040/customers/shop?shopId=${shopId}`, {
+      .get(`https://agenda-back.onrender.com/customers/shop?shopId=${shopId}`, {
         headers: {
           Authorization: token,
         },
@@ -153,7 +153,7 @@ const Clients = () => {
   };
 
   function deleteCustomer(id) {
-    fetch(`http://localhost:4040/customers/${id}`, {
+    fetch(`https://agenda-back.onrender.com/customers/${id}`, {
       method: "DELETE",
       headers: {
         Authorization: token,
@@ -167,7 +167,7 @@ const Clients = () => {
   const handleRemoveSelected = () => {
     selectedIds.forEach((id) => {
       axios
-        .delete(`http://localhost:4040/customers/${id}`, {
+        .delete(`https://agenda-back.onrender.com/customers/${id}`, {
           headers: {
             Authorization: token,
           },

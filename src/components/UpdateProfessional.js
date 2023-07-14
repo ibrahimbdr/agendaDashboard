@@ -17,7 +17,7 @@ const UpdateProfessional = ({
   const token = localStorage.getItem("ag_app_shop_token");
   useEffect(() => {
     axios
-      .get(`http://localhost:4040/professionals/${professionalId}`, {
+      .get(`https://agenda-back.onrender.com/professionals/${professionalId}`, {
         headers: {
           Authorization: token,
         },
@@ -130,7 +130,7 @@ const UpdateProfessional = ({
           const fetchRequest = async () => {
             try {
               const response = await axios.patch(
-                `http://localhost:4040/professionals/${professionalId}`,
+                `https://agenda-back.onrender.com/professionals/${professionalId}`,
                 patchData,
                 {
                   headers: {

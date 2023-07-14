@@ -58,7 +58,7 @@ const Calculator = ({
       const updatePayment = () => {
         axios
           .patch(
-            `http://localhost:4040/payments/${bookingInfo.paymentId}`,
+            `https://agenda-back.onrender.com/payments/${bookingInfo.paymentId}`,
             patchData,
             {
               headers: {
@@ -80,7 +80,7 @@ const Calculator = ({
             console.log("customer id: ", bookingInfo.customer);
             axios
               .patch(
-                `http://localhost:4040/customers/${bookingInfo.customer}`,
+                `https://agenda-back.onrender.com/customers/${bookingInfo.customer}`,
                 JSON.stringify({ payments: updatedClientPayments }),
                 {
                   headers: {
@@ -104,7 +104,7 @@ const Calculator = ({
 
       const makePayment = () => {
         axios
-          .post("http://localhost:4040/payments", data, {
+          .post("https://agenda-back.onrender.com/payments", data, {
             headers: {
               "Content-Type": "application/json",
               Authorization: token,
@@ -122,7 +122,7 @@ const Calculator = ({
             console.log("customer id: ", bookingInfo.customer);
             axios
               .patch(
-                `http://localhost:4040/customers/${bookingInfo.customer}`,
+                `https://agenda-back.onrender.com/customers/${bookingInfo.customer}`,
                 JSON.stringify({ payments: updatedClientPayments }),
                 {
                   headers: {
@@ -147,7 +147,7 @@ const Calculator = ({
       const linkPaymentToAppointment = () => {
         axios
           .patch(
-            `http://localhost:4040/payments/${paymentId}`,
+            `https://agenda-back.onrender.com/payments/${paymentId}`,
             { appointment: bookingInfo.appointmentId },
             {
               headers: {
@@ -167,7 +167,7 @@ const Calculator = ({
       const confirmAppointmentPayment = () => {
         axios
           .patch(
-            `http://localhost:4040/appointments/${bookingInfo.appointmentId}`,
+            `https://agenda-back.onrender.com/appointments/${bookingInfo.appointmentId}`,
             {
               service: bookingInfo.service,
               product: bookingInfo.product,

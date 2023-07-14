@@ -44,7 +44,7 @@ const RegisterProduct = ({ setModelState }) => {
 
       // Upload the image
       const uploadResponse = await axios.post(
-        "http://localhost:4040/products/imageUpload",
+        "https://agenda-back.onrender.com/products/imageUpload",
         formData,
         {
           headers: {
@@ -70,7 +70,7 @@ const RegisterProduct = ({ setModelState }) => {
       };
 
       const updateResponse = await axios.post(
-        "http://localhost:4040/products",
+        "https://agenda-back.onrender.com/products",
         postData,
         {
           headers: {

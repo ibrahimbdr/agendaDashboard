@@ -24,7 +24,7 @@ const Scheduler = ({ date }) => {
     setLoading(true);
     try {
       const response = await fetch(
-        `http://localhost:4040/appointments?shop=${shopId}`,
+        `https://agenda-back.onrender.com/appointments?shop=${shopId}`,
         {
           method: "GET",
           headers: {

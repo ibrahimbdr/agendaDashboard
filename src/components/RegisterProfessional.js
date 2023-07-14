@@ -84,7 +84,7 @@ const RegisterProfessional = ({ setModelState, workingHours }) => {
           const fetchRequest = async () => {
             try {
               const response = await axios.post(
-                "http://localhost:4040/professionals/",
+                "https://agenda-back.onrender.com/professionals/",
                 postData,
                 {
                   headers: {

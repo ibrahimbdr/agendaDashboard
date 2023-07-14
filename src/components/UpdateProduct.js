@@ -12,7 +12,7 @@ const UpdateProduct = ({ setModelState, productId }) => {
   const [productData, setProductData] = useState(null);
   useEffect(() => {
     axios
-      .get(`http://localhost:4040/products/${productId}`, {
+      .get(`https://agenda-back.onrender.com/products/${productId}`, {
         headers: {
           Authorization: token,
         },
@@ -52,7 +52,7 @@ const UpdateProduct = ({ setModelState, productId }) => {
 
         // Upload the image
         const uploadResponse = await axios.post(
-          "http://localhost:4040/products/imageUpload",
+          "https://agenda-back.onrender.com/products/imageUpload",
           formData,
           {
             headers: {
@@ -78,7 +78,7 @@ const UpdateProduct = ({ setModelState, productId }) => {
       };
 
       const updateResponse = await axios.patch(
-        `http://localhost:4040/products/${productId}`,
+        `https://agenda-back.onrender.com/products/${productId}`,
         patchData,
         {
           headers: {
@@ -99,7 +99,7 @@ const UpdateProduct = ({ setModelState, productId }) => {
     console.log("deleting ", productData.productImg);
     axios
       .delete(
-        `http://localhost:4040/products/image/${productData.productImg}`,
+        `https://agenda-back.onrender.com/products/image/${productData.productImg}`,
         {
           headers: {
             Authorization: token,
@@ -250,7 +250,7 @@ const UpdateProduct = ({ setModelState, productId }) => {
                       productData.productImg
                     )}
                     <img
-                      src={`http://localhost:4040/uploads/products/${productData.productImg}`}
+                      src={`https://agenda-back.onrender.com/uploads/products/${productData.productImg}`}
                       alt={productData.productImg}
                       className="rounded-md h-[100%]"
                     />

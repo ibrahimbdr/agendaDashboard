@@ -18,7 +18,7 @@ const PasswordReset = () => {
     try {
       // Send a request to your backend API with the new password and the token
       const response = await axios.post(
-        "http://localhost:4040/password/reset-password",
+        "https://agenda-back.onrender.com/password/reset-password",
         {
           token,
           newPassword: values.newPassword,

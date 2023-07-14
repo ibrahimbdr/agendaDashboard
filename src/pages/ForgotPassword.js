@@ -23,7 +23,7 @@ const ForgotPassword = () => {
   const handleSubmit = (values, { setSubmitting }) => {
     setWaiting(true);
     axios
-      .post(`http://localhost:4040/password/forgot-password`, values)
+      .post(`https://agenda-back.onrender.com/password/forgot-password`, values)
       .then((res) => {
         console.log(res);
         setWaiting(false);
