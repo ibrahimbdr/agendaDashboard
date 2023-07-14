@@ -168,8 +168,8 @@ const CreditPayment = ({
           setAmountPaid(totalPrice);
           setChange(0);
 
-          handlePopupClose();
           handleConfirmPayment();
+          handlePopupClose();
         })
         .catch((error) => {
           console.error(error.message);

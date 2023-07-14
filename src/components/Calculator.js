@@ -186,8 +186,8 @@ const Calculator = ({
             setChange(amountReceived - totalPrice);
             setUnSufficientAmountMsg(false);
 
-            handlePopupClose();
             handleConfirmPayment();
+            handlePopupClose();
           })
           .catch((error) => {
             console.error(error.message);

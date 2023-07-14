@@ -320,7 +320,7 @@ const Checkout = () => {
 
   const handleCheckoutComplete = () => {
     localStorage.removeItem("ag_app_booking_info");
-    navigate("/checkout-appointments");
+    navigate("/");
   };
 
   if (loading) {
